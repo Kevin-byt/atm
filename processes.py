@@ -1,4 +1,5 @@
 users = {}
+
 def line():
     print("="*50)
 
@@ -151,7 +152,8 @@ def userMenu(acc):
     print("\t 1. Withdraw Funds")
     print("\t 2. Deposit Funds")
     print("\t 3. Check Balance")
-    print("\t 4. Exit to home")
+    print("\t 4. Change Pin")
+    print("\t 5. Exit to home")
     
     choice = input("Select Service: (1 or 2 or 3 or 4): ")
 
@@ -165,8 +167,11 @@ def userMenu(acc):
         checkBalance(account)
 
     elif choice == "4":
-        home()
+        changePin(account)
 
+    elif choice == "5":
+        home()
+    
     else:
         print("Invalid Entry")
         userMenu(account) 
@@ -228,9 +233,9 @@ def withdrawFunds(acc):
             printReceipt = printReceipt.upper()
 
             if (printReceipt == "Y"):
-                print("\t Initial Balance: {}".format(balance))
-                print("\t Withdrawal Amount: {}".format(withdrawAmt))
-                print("\t Current Balance: {}".format(newBalance))
+                print("\t Initial Balance: {} {}".format(withdraw, balance))
+                print("\t Withdrawal Amount: {} {}".format(withdraw, withdrawAmt))
+                print("\t Current Balance: {} {}".format(withdraw, newBalance))
                 userMenu(account)
 
             else:
@@ -275,9 +280,9 @@ def depositFunds(acc):
         printReceipt = printReceipt.upper()
 
         if (printReceipt == "Y"):
-            print("\t Initial Balance: {}".format(balance))
-            print("\t Deposit Amount: {}".format(depositAmt))
-            print("\t Current Balance: {}".format(newBalance))
+            print("\t Initial Balance: {}".format(deposit, balance))
+            print("\t Deposit Amount: {}".format(deposit, depositAmt))
+            print("\t Current Balance: {}".format(deposit, newBalance))
             userMenu(account)
 
         else:
@@ -292,6 +297,28 @@ def checkBalance(acc):
     usd = getUSDBalance(account)
     kes = getKESBalance(account)
     print("Your account balance is : ")
-    print("USD {}".format(usd))
     print("KES {}".format(kes))
+    print("USD {}".format(usd))    
     userMenu(account)
+
+
+def changePin(acc):
+    currentPin = users[acc]["pin"]
+    pin = input("Please eneter your current pin: ")
+
+    if (pin == currentPin):
+        newPin = input("Please enter your new pin: ")
+        newPin2 = input("Please re-enter your new pin: ")
+
+        if(newPin == newPin2):
+            users[acc]["pin"] = newPin
+            Print("Pin changed successfully")
+            userMenu(acc)
+
+        else:
+            print("Passwords did not match. Please try again")
+            changePin(acc)
+
+    else:
+        print('You have entered the wrong pin. Please try again')
+        userMenu(acc)

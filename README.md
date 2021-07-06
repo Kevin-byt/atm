@@ -1,4 +1,7 @@
 # atm
+
+Run atm.py
+
 This program simulates the functioning of an ATM machine
 
 When the program starts, it gives the user 2 options:
@@ -11,6 +14,7 @@ When the program starts, it gives the user 2 options:
 	1. Creating an account
 	2. Deleting an account
 	3. Viewing the accounts in the system
+	4. Adding a user automatically. 
 	
 2. Account Holder (User)
 - This logs in to a specific account
