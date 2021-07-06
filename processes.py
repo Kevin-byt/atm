@@ -136,7 +136,6 @@ def userLogin():
         
         else:
             print("Invalid Account. Please enter a valid account number")
-            print(accountTries)
 
     home()
 
@@ -297,8 +296,8 @@ def checkBalance(acc):
     usd = getUSDBalance(account)
     kes = getKESBalance(account)
     print("Your account balance is : ")
-    print("KES {}".format(kes))
-    print("USD {}".format(usd))    
+    print("\t KES {}".format(kes))
+    print("\t USD {}".format(usd))    
     userMenu(account)
 
 
