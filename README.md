@@ -14,7 +14,7 @@ When the program starts, it gives the user 2 options:
 	1. Creating an account
 	2. Deleting an account
 	3. Viewing the accounts in the system
-	4. Adding a user automatically. 
+	4. Adding a user automatically (The user is already predefined). 
 	
 2. Account Holder (User)
 - This logs in to a specific account
@@ -22,4 +22,5 @@ When the program starts, it gives the user 2 options:
 	1. Deposit funds into his accounts (Both USD and KES)
 	2. Withdraw funds from his accounts (only if the balance is more than the withdrawal amount)
 	3. Check his balances (Both USD and KES)
+	4. Can change password
 - The user's activities update the account balances based on the nature of the transaction
